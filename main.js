@@ -4,5 +4,17 @@ request('https://cdn.rawgit.com/metaraine/swatch/74580660c9229541622bbf1fd419861
 if (!error && response.statusCode == 200) {
     var colors = JSON.parse(body);
   }
-  console.log(colors);
 })
+
+var test = process.argv[2];
+
+var testfunc = function(test){
+	for(var i=0; i<colors.length; i++){
+		if (test == colors.name.toLowerCase()){
+			return colors.rgb;
+		} else {
+			return "not a color";
+		}
+	}
+}
+testfunc(test);
